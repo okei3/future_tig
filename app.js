@@ -24,6 +24,7 @@ app.get('/', function (req, res) {
 });
 
 require('./act/login').route(app);
+require('./act/home').route(app);
 
 app.configure('development', function () {
     app.listen(8080);

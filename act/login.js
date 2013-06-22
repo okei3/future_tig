@@ -10,12 +10,12 @@ module.exports = {
                 if (user_id === null) {
                     res.redirect('/');
                 } else {
-                    req.session.user_id = user_id;
                     req.session.regenerate(function (err) {
                         if (err) {
                             res.redirect('/');
                         }
-                        res.redirect('/index?user_id=' + user_id);
+                        req.session.user_id = user_id;
+                        res.redirect('/home');
                     });
                 }
             }
