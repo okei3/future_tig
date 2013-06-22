@@ -19,9 +19,9 @@ app.configure('development', function () {
     });
 });
 
-require('./act/index').route(app);
-require('./act/login').route(app);
-require('./act/home').route(app);
+require('./routes/index').route(app);
+require('./routes/login').route(app);
+require('./routes/home').route(app);
 
 app.configure('development', function () {
     app.listen(8080);
