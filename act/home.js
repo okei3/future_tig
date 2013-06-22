@@ -4,7 +4,7 @@ module.exports = {
             if (req.session.user_id === undefined) {
                 res.redirect('/');
             } else {
-                res.sendfile('home.html');
+                res.sendfile('htdocs/home.html');
             }
         });
     }
