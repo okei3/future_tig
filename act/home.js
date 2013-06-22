@@ -3,9 +3,9 @@ module.exports = {
         app.get('/home', function (req, res) {
             if (req.session.user_id === undefined) {
                 res.redirect('/');
-            } else {
-                res.sendfile('htdocs/home.html');
+                return;
             }
+            res.sendfile('htdocs/home.html');
         });
     }
 };
