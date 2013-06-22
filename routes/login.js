@@ -1,8 +1,8 @@
 module.exports = {
     route : function (app) {
         app.post('/login', function (req, res) {
-            var id = req.body.id;
-            var password = req.body.password;
+            var id = req.param('id');
+            var password = req.param('password');
             if (id === undefined || password === undefined) {
                 res.redirect('/');
                 return;
