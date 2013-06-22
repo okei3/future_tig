@@ -19,10 +19,7 @@ app.configure('development', function () {
     });
 });
 
-app.get('/', function (req, res) {
-    res.sendfile('index.html');
-});
-
+require('./act/index').route(app);
 require('./act/login').route(app);
 require('./act/home').route(app);
 

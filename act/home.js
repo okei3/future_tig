@@ -1,8 +1,11 @@
 module.exports = {
     route : function (app) {
         app.get('/home', function (req, res) {
-            console.log(req.session.user_id);
-            res.sendfile('home.html');
+            if (req.session.user_id === undefined) {
+                res.redirect('/');
+            } else {
+                res.sendfile('home.html');
+            }
         });
     }
 };
