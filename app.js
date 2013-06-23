@@ -19,9 +19,7 @@ app.configure('development', function () {
     });
 });
 
-var modules = require('./module');
-
-require('./routes')(app, modules);
+require('./routes')(app, require('./module'));
 
 app.configure('development', function () {
     app.listen(8080);
