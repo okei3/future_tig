@@ -21,9 +21,7 @@ app.configure('development', function () {
 
 var modules = require('./module');
 
-require('./routes/index')(app, modules);
-require('./routes/login')(app, modules);
-require('./routes/home')(app, modules);
+require('./routes')(app, modules);
 
 app.configure('development', function () {
     app.listen(8080);

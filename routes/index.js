@@ -1,5 +1,5 @@
 module.exports = function (app, modules) {
-    app.get('/', function (req, res) {
-        res.sendfile('htdocs/index.html');
-    });
+    require('./top')(app, modules);
+    require('./login')(app, modules);
+    require('./home')(app, modules);
 };
