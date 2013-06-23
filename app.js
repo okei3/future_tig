@@ -1,4 +1,4 @@
-var express = require('express');
+var express = require('express.io');
 var app = express();
 var auth = require('http-auth');
 var http_auth = auth({
@@ -19,9 +19,11 @@ app.configure('development', function () {
     });
 });
 
-require('./routes/index').route(app);
-require('./routes/login').route(app);
-require('./routes/home').route(app);
+var modules = {};
+
+require('./routes/index')(app, modules);
+require('./routes/login')(app, modules);
+require('./routes/home')(app, modules);
 
 app.configure('development', function () {
     app.listen(8080);
