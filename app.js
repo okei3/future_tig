@@ -19,7 +19,7 @@ app.configure('development', function () {
     });
 });
 
-var modules = {};
+var modules = require('./module');
 
 require('./routes/index')(app, modules);
 require('./routes/login')(app, modules);

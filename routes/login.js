@@ -6,7 +6,7 @@ module.exports = function (app, modules) {
             res.redirect('/');
             return;
         }
-        var user_id = 1;//tmp
+        var user_id = modules.user.id.authenticate(mail, password);
         if (user_id === null) {
             res.redirect('/');
             return;
