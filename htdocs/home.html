@@ -3,18 +3,10 @@
   <head>
     <title>home</title>
     <script type="text/javascript" src="/javascripts/socket.io.min.js"></script>
-    <script type="text/javascript">
-      var socket = io.connect();
-      socket.on('connect', function() {
-      console.log('connected');
-      socket.emit('ready', '');
-      });
-      socket.on('identify', function(message){
-      alert('your id : ' + message.access_user_id);
-      });
-    </script>
+    <script type="text/javascript" src="/javascripts/home.js"></script>
   </head>
   <body>
     <h1>home</h1>
+    <a href="/logout">logout</a>
   </body>
 </html>

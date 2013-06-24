@@ -20,14 +20,10 @@ app.configure('development', function () {
     });
 });
 
-require('./routes')(app, require('./module'));
-
+var modules = require('./module');
 app.http().io();
-app.io.route('ready', function (req) {
-    req.io.emit('identify', {
-        access_user_id : req.session.user_id
-    });
-});
+require('./routes')(app, modules);
+require('./io_routes')(app.io, modules);
 
 app.configure('development', function () {
     app.listen(8080);
