@@ -6,8 +6,15 @@ app.configure('development', function () {
     config = require('./conf/development');
 });
 
+var redis = require('redis').createClient(config.redis.port, config.redis.host);
+redis.select(config.redis.db, function () {});
+var RedisStore  =  require('connect-redis')(express);
+
 app.use(express.cookieParser());
-app.use(express.session({secret : config.sessionSecret}));
+app.use(express.session({
+    store : new RedisStore({client: redis}),
+    secret : config.sessionSecret
+}));
 app.use(express.bodyParser());
 app.use(express.static(__dirname + '/public'));
 
