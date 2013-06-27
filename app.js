@@ -1,18 +1,14 @@
-var express = require('express.io');
-var app = express();
-app.http().io();
-var config;
-app.configure('development', function () {
-    config = require('./conf/development');
-});
-
+var config = require('./conf/' + process.env.NODE_ENV);
 var dsn = require('./dsn')(config.dsn);
-var RedisStore  =  require('connect-redis')(express);
-
-app.use(express.cookieParser());
 dsn.redis('main', function (redis) {
+    var express = require('express.io');
+    var app = express();
+    app.http().io();
+    app.use(express.cookieParser());
     app.use(express.session({
-        store : new RedisStore({client: redis}),
+        store : new (require('connect-redis')(express))({
+            client: redis
+        }),
         secret : config.sessionSecret
     }));
     app.use(express.bodyParser());
@@ -38,7 +34,5 @@ dsn.redis('main', function (redis) {
     require('./routes')(app, modules);
     require('./io_routes')(app.io, modules);
 
-    app.configure('development', function () {
-        app.listen(config.port);
-    });
+    app.listen(config.port);
 });
