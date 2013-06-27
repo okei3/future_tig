@@ -34,7 +34,7 @@ dsn.redis('main', function (redis) {
 
     var modules = require('./module');
 
-    app.io.set('origins', config.host + ':' + config.port);
+    app.io.set('origins', config.domain + ':' + config.port);
     require('./routes')(app, modules);
     require('./io_routes')(app.io, modules);
 
