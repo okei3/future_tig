@@ -10,7 +10,7 @@ var dsn = require('./dsn')(config.dsn);
 var RedisStore  =  require('connect-redis')(express);
 
 app.use(express.cookieParser());
-dsn.redis.get('main', function (redis) {
+dsn.redis('main', function (redis) {
     app.use(express.session({
         store : new RedisStore({client: redis}),
         secret : config.sessionSecret
