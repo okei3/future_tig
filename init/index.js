@@ -2,6 +2,8 @@ module.exports = function (option) {
     var express = require('express.io');
     var app = express();
     app.http().io();
+    app.set('views',  __dirname + '/../views');
+    app.set('view engine',  'jade');
     app.use(express.cookieParser());
     app.use(express.session({
         store : new (require('connect-redis')(express))({

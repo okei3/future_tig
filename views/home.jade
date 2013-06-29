@@ -1,0 +1,10 @@
+!!! 5
+html
+ head
+  title home
+  script(type='text/javascript', src='/javascripts/socket.io.min.js')
+  script(type='text/javascript', src='/javascripts/home.js')
+ body
+  h1 home
+  p user_id : #{user_id}
+  a(href='/logout')

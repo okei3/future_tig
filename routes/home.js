@@ -4,6 +4,6 @@ module.exports = function (app, module) {
             res.redirect('/');
             return;
         }
-        res.sendfile('htdocs/home.html');
+        res.render('home', {user_id : req.session.user_id});
     });
 };
