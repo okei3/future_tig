@@ -8,6 +8,8 @@
   "dependencies": {
     "express.io": "latest",
     "redis": "latest",
-    "jade": "*"
+    "jade": "*",
+    "connect-redis": "*",
+    "http-auth": "*"
   }
 }
