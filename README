@@ -1,3 +1,5 @@
+How to Setup
+
 $ tree conf
 conf
 ├── developers
@@ -26,6 +28,12 @@ c8250b72f7f01b3a6ba0851ff8300897 is published by command below
 $ echo -n takeshi:developer:testtest | md5sum
 c8250b72f7f01b3a6ba0851ff8300897  -
 
+$ brew install redis
+
+$ git submodule update --init
+
+$ npm install
 
 How to Use
+$ redis-server
 $ NODE_ENV=development node app.js
