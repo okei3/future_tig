@@ -1,0 +1,3 @@
+[submodule "lib/clystal"]
+	path = lib/clystal
+	url = git@github.com:9uArtz/clystal.git
