@@ -1,7 +1,7 @@
 $ tree conf
 conf
 ├── developers
-└── development
+└── development.js
 
 $ cat conf/development.js
 module.exports = {
