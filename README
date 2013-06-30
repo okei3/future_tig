@@ -25,3 +25,7 @@ takeshi:developer:c8250b72f7f01b3a6ba0851ff8300897
 c8250b72f7f01b3a6ba0851ff8300897 is published by command below
 $ echo -n takeshi:developer:testtest | md5sum
 c8250b72f7f01b3a6ba0851ff8300897  -
+
+
+How to Use
+$ NODE_ENV=development node app.js
