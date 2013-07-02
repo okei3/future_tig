@@ -4,5 +4,5 @@ socket.on('connect', function() {
     socket.emit('ready', '');
 });
 socket.on('identify', function(message){
-    alert('your id : ' + message.access_user_id);
+    console.log('your id : ' + message.access_user_id);
 });
