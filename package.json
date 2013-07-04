@@ -10,6 +10,11 @@
     "redis": "latest",
     "jade": "*",
     "connect-redis": "*",
-    "http-auth": "*"
+    "http-auth": "*",
+    "vows": "latest",
+    "assert": "latest"
+  },
+  "scripts": {
+    "test": "vows --spec test/*"
   }
 }
