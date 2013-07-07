@@ -1,12 +1,21 @@
 !!! 5
 html
- head
-  title login
- body
+  head
+    title login
+body
   h1 login
   form(action='/login', method='POST')
-   p mail
-    input(type='textbox', name='mail')
-   p password
-    input(type='password', name='password')
-   input(type='submit')
+    p mail
+      input(type='textbox', name='mail')
+    p password
+      input(type='password', name='pass')
+    input(type='submit')
+  h1 Register
+  form(action='/user/register', method='POST')
+    p name
+      input(type='textbox', name='name')
+    p mail
+      input(type='textbox', name='mail')
+    p pass
+      input(type='password', name='pass')
+    input(type='submit', value='register')
