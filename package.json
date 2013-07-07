@@ -12,7 +12,9 @@
     "connect-redis": "*",
     "http-auth": "*",
     "vows": "latest",
-    "assert": "latest"
+    "assert": "latest",
+    "jasmine-node":"latest",
+    "underscore":"latest"
   },
   "scripts": {
     "test": "vows --spec test/*"
