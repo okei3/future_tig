@@ -1,3 +1,4 @@
+var clystal = require('./lib/clystal');
 var config = require('./conf/' + process.env.NODE_ENV);
 var dsn = require('./dsn')(config.dsn);
 var modules = require('./module')({config : config, dsn : dsn});
