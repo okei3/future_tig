@@ -14,7 +14,8 @@
     "vows": "latest",
     "assert": "latest",
     "jasmine-node":"latest",
-    "underscore":"latest"
+    "underscore":"latest",
+    "mysql":"latest"
   },
   "scripts": {
     "test": "vows --spec test/*"

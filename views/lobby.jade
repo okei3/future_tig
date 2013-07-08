@@ -1,0 +1,9 @@
+!!! 5
+html
+ head
+  title lobby
+  script(type='text/javascript', src='/socket.io/socket.io.js')
+ body
+  h1 room
+  each room in rooms
+    p #{room.id} : #{room.name}
