@@ -1,9 +1,11 @@
 {
-  "name": "application-name",
+  "name": "future_tig",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app.js"
+  },
+  "repository": {
   },
   "dependencies": {
     "express.io": "latest",
@@ -12,9 +14,10 @@
     "connect-redis": "*",
     "http-auth": "*",
     "vows": "latest",
-    "assert": "latest"
+    "assert": "latest",
+    "jasmine-node": "latest"
   },
   "scripts": {
-    "test": "vows --spec test/*"
+    "test": "jasmine-node ./module"
   }
 }
