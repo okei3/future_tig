@@ -1,6 +1,6 @@
 _ = require('underscore');
 module.exports =  function (id, name) {
-    var member_ids = [];
+    var memberIds = [];
     this.getId  =  function () {
         return id;
     };
@@ -10,17 +10,17 @@ module.exports =  function (id, name) {
     this.setName = function (new_name) {
         name = new_name;
     };
-    this.hasMember = function (member_id) {
-        return _.contains(member_ids, member_id);
+    this.hasMember = function (memberId) {
+        return _.contains(memberIds, memberId);
     };
-    this.addMember = function (member_id) {
-        if (!this.hasMember(member_id)) {
-            member_ids.push(member_id);
+    this.addMember = function (memberId) {
+        if (!this.hasMember(memberId)) {
+            memberIds.push(memberId);
         }
     };
-    this.removeMember = function (member_id) {
-        member_ids = _.filter(member_ids, function (id) {
-            return id != member_ids;
+    this.removeMember = function (memberId) {
+        memberIds = _.filter(memberIds, function (id) {
+            return id != memberIds;
         });
     };
 };
