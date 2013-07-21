@@ -1,0 +1,12 @@
+!!! 5
+html
+ head
+  title Chat
+  script(type='text/javascript', src='/socket.io/socket.io.js')
+  script(type='text/javascript', src='/javascripts/chat.js')
+ body
+  h1 Chat
+  p user_id : #{user_id}
+  input#chat-form(type='text')
+  #message-container
+  a(href='/logout') logout
