@@ -1,13 +1,13 @@
-module.exports = function (dns_list) {
+module.exports = function (dnsList) {
     var mem = {};
     return function (dns, cb) {
         if (mem[dns] == undefined) {
             mem[dns] = require('redis').createClient(
-                dns_list[dns].port,
-                dns_list[dns].host
+                dnsList[dns].port,
+                dnsList[dns].host
             );
             mem[dns].select(
-                dns_list[dns].db,
+                dnsList[dns].db,
                 function (err, reply) {
                     cb(mem[dns]);
                 }

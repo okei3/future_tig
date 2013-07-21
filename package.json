@@ -15,7 +15,9 @@
     "http-auth": "*",
     "vows": "latest",
     "assert": "latest",
-    "jasmine-node": "latest"
+    "jasmine-node":"latest",
+    "underscore":"latest",
+    "mysql":"latest"
   },
   "scripts": {
     "test": "jasmine-node ./module"
