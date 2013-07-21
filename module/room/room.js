@@ -7,8 +7,8 @@ module.exports =  function (id, name) {
     this.getName = function () {
         return name;
     };
-    this.setName = function (new_name) {
-        name = new_name;
+    this.setName = function (newName) {
+        name = newName;
     };
     this.hasMember = function (memberId) {
         return _.contains(memberIds, memberId);
