@@ -1,6 +1,6 @@
-module.exports = function (dns) {
+module.exports = function (dsn) {
     return {
-        redis : require('./redis')(dns.redis),
-        mysql : require('./mysql')(dns.mysql)
+        redis : require('./redis')(dsn.redis),
+        mysql : require('./mysql')(dsn.mysql)
     };
 }

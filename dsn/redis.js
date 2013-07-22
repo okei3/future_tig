@@ -1,18 +1,18 @@
-module.exports = function (dnsList) {
+module.exports = function (dsnList) {
     var mem = {};
-    return function (dns, cb) {
-        if (mem[dns] == undefined) {
-            mem[dns] = require('redis').createClient(
-                dnsList[dns].port,
-                dnsList[dns].host
+    return function (dsn, cb) {
+        if (mem[dsn] == undefined) {
+            mem[dsn] = require('redis').createClient(
+                dsnList[dsn].port,
+                dsnList[dsn].host
             );
-            mem[dns].select(
-                dnsList[dns].db,
+            mem[dsn].select(
+                dsnList[dsn].db,
                 function (err, reply) {
-                    cb(mem[dns]);
+                    cb(mem[dsn]);
                 }
             );
         }
-        cb(mem[dns]);
+        cb(mem[dsn]);
     };
 };

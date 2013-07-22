@@ -1,9 +1,9 @@
-module.exports = function (dnsList) {
+module.exports = function (dsnList) {
     var mem = {};
-    return function (dns, cb) {
-        if (mem[dns] == undefined) {
-            mem[dns] = require('mysql').createConnection(dnsList[dns]);
+    return function (dsn, cb) {
+        if (mem[dsn] == undefined) {
+            mem[dsn] = require('mysql').createConnection(dsnList[dsn]);
         }
-        cb(mem[dns]);
+        cb(mem[dsn]);
     };
 };
