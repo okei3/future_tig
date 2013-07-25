@@ -66,7 +66,7 @@ function formatStack(str)
         function : match[1],
         file     : match[2],
         line     : match[3],
-        at       : match[4],
+        at       : match[4]
     };
 
     return ret;
