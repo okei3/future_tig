@@ -1,14 +1,9 @@
 _ = require('underscore');
 module.exports = function (app, modules) {
-    prototype = {modules: modules};
-    var files = ['login', 'lobby'];
-    _.each(files, function (file) {
-        Router = require('./' + file);
+    var children  = modules.util.requireChildren(__dirname);
+    var prototype = {modules: modules};
+    children.each(function(Router) {
         Router.prototype = prototype;
         new Router().route(app);
     });
-    require('./top')(app, modules);
-    require('./logout')(app, modules);
-    require('./home')(app, modules);
-    require('./chat')(app, modules);
 };
