@@ -11,12 +11,15 @@ module.exports = function () {
             self.modules.user.id.authenticate(mail, pass)(function(err, userId) {
                 if (err) {
                     res.redirect('/');
+                    return;
                 } else if (userId === null) {
                     res.redirect('/');
+                    return;
                 }
                 req.session.regenerate(function(err) {
                     if (err) {
                         res.redirect('/');
+                        return;
                     }
                     req.session.userId = userId;
                     res.redirect('/home');
