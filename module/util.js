@@ -18,12 +18,13 @@ module.exports = {
  * @param   string  path to read
  * @return  object
  */
-function requireChildren(path) {
+function requireChildren(path, stackCount) {
+    stackCount = stackCount | 0;
     var children = [];
     var stack = (new Error().stack).split("\n");
     var calledFile;
-    if (3 <= stack.length) {
-        calledFile = formatStack(stack[2]).file;
+    if (3 + stackCount <= stack.length) {
+        calledFile = formatStack(stack[2 + stackCount]).file;
     }
 
     fs.readdirSync(path).each(function(fileName) {
@@ -31,7 +32,7 @@ function requireChildren(path) {
         switch (parts.length) {
             case 1:
                 // directory
-                requireChildren(path + '/' + fileName).each(function(module) {
+                requireChildren(path + '/' + fileName, stackCount + 1).each(function(module) {
                     children.push(module);
                 });
                 break;

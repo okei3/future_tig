@@ -2,6 +2,7 @@ module.exports = {
     domain : 'localhost',
     port : 80,
     sessionSecret : 'OB6dCFalX8Mrfe5tLzaFc5HbLaHH1Ou4WUG96inFB6h4yVYvtz/1CWTx7zPb5ZAeiTqr92firNk4',
+    clystal: __dirname + '/../clystal',
     dsn : {
         redis : {
             main : {

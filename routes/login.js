@@ -3,23 +3,28 @@ module.exports = function () {
         var self = this;
         app.post('/login', function (req, res) {
             var mail = req.param('mail');
-            var password = req.param('password');
-            if (mail === undefined || password === undefined) {
+            var pass = req.param('pass');
+            if (mail === undefined || pass === undefined) {
                 res.redirect('/');
                 return;
             }
-            var user_id = self.modules.user.id.authenticate(mail, password);
-            if (user_id === null) {
-                res.redirect('/');
-                return;
-            }
-            req.session.regenerate(function (err) {
+            self.modules.user.id.authenticate(mail, pass)(function(err, userId) {
                 if (err) {
                     res.redirect('/');
+                    return;
+                } else if (userId === null) {
+                    res.redirect('/');
+                    return;
                 }
-                req.session.user_id = user_id;
-                res.redirect('/home');
-            });
+                req.session.regenerate(function(err) {
+                    if (err) {
+                        res.redirect('/');
+                        return;
+                    }
+                    req.session.userId = userId;
+                    res.redirect('/home');
+                })
+            })
         });
     };
 };

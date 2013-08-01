@@ -1,5 +1,4 @@
 module.exports = function (option) {
-    var clystal = require('../lib/clystal');
     var express = require('express.io');
     var app = express();
     app.http().io();
