@@ -1,7 +1,7 @@
 const SALT_PREFIX = 'quartz';
 const SALT_SUFFIX = 'keiichikun';
 
-var userAccessor = require('../../lib/clystal').getAccessor('user');
+var userAccessor = require('clystal').getAccessor('user');
 
 module.exports = {
     get : function(userId) {
