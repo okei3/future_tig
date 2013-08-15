@@ -38,4 +38,4 @@
 
 # How to Use
     $ redis-server
-    $ NODE_ENV=development node app.js
+    $ NODE_ENV=development NODE_PATH=./lib node app.js
