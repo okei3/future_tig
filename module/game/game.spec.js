@@ -9,5 +9,9 @@ describe('game', function () {
     it('change turn', function () {
         game.changeTurn();
         expect(game.turn).toBe(1);
+        game.changeTurn();
+        expect(game.turn).toBe(2);
+        game.changeTurn();
+        expect(game.turn).toBe(0);
     });
 });
