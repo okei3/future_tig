@@ -1,7 +1,7 @@
 module.exports = {
     tableName  : "user",
     primaryKey : "user_id",
-    dsn        : "user",
+    dsn        : "main",
     queries    : {
         insert :
             "INSERT IGNORE INTO __TABLE_NAME__ " +
