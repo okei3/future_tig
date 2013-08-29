@@ -10,7 +10,7 @@ module.exports = function () {
             }
             self.modules.user.id.register(name, mail, pass)(function(err, ret) {
                 if (err) {
-                    req.render('error', {msg: err.msg});
+                    res.render('error', {msg: err.msg});
                 }
                 if (ret.affectedRows === 0) {
                     var msg = 'the mail address has been already registered(' + mail + ')';

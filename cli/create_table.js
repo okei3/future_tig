@@ -1,4 +1,4 @@
-var clystal = require('../lib/clystal').init(require('../conf/clystal.ini'));
+var clystal = require('clystal').init(require('../conf/' + process.env.NODE_ENV));
 var argv    = process.argv;
 // remove 'node'
 argv.shift();
@@ -11,7 +11,7 @@ try {
         console.log(scheme);
         var ac = clystal.getAccessor(scheme);
         ac.createDB()(function(ret) {
-            ac.execute('createTable', {})(function(ret) {
+            ac.execute('createTable', {})(function(err, ret) {
                 if (ret.warningCount === 0) {
                     console.log('- create');
                 } else {
