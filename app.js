@@ -9,5 +9,6 @@ dsn.redis('main', function (redis) {
     });
     require('./routes')(app, modules);
     require('./io_routes')(app.io, modules);
+    require('./io_routes/game.js')(app.io, modules);
     app.listen(config.port);
 });
