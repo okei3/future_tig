@@ -1,0 +1,11 @@
+!!! 5
+html
+ head
+  title home
+  script(type='text/javascript', src='/socket.io/socket.io.js')
+  script(type='text/javascript', src='/javascripts/game.js')
+ body
+  form#input(onsubmit='return false')
+   input#text(type='text')
+   button(type='submit') move
+  table#positions(border='1')
