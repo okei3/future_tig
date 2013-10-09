@@ -1,0 +1,25 @@
+!!! 5
+html
+ head
+  link(rel="stylesheet", href='css/bootstrap.css')
+  link(rel="stylesheet", href='css/flat-ui.css')
+  title Future Tig
+ body
+  div(class='container')
+   div(class='demo-headline')
+    h1(class='demo-logo') Future Tig
+     small by 9uArtz
+   div(class='row')
+    div(class='span6')
+    div(class='span3')
+     form(action='/login', method='POST')
+      p
+       div(class='control-group')
+        input(type='text', name='mail', placeholder='Enter your name')
+      p
+       div(class='control-group')
+        input(type='password', name='password', placeholder='Password')
+      p
+       div(class='control-group')
+        input(type='submit', class='btn btn-primary btn-large btn-block', value='Login')
+
