@@ -12,6 +12,9 @@ try {
         var ac = clystal.getAccessor(scheme);
         ac.createDB()(function(ret) {
             ac.execute('createTable', {})(function(err, ret) {
+                if (err) {
+                    throw err;
+                }
                 if (ret.warningCount === 0) {
                     console.log('- create');
                 } else {
