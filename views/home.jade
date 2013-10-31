@@ -4,7 +4,23 @@ html
   title home
   script(type='text/javascript', src='/socket.io/socket.io.js')
   script(type='text/javascript', src='/javascripts/home.js')
+  link(rel="stylesheet", href='css/bootstrap.css')
+  link(rel="stylesheet", href='css/flat-ui.css')
  body
+  .row
+   .span12
+    .navbar.navbar-inverse
+     .navbar-inner
+      .container
+       #nav-collapse-01.nav-collapse.collapse
+        ul.nav
+         li.active
+          a Top
+         li
+          a(href="/lob") Lobby
+         li
+          a help
+   .span0
   h1 home
   p user_id : #{user_id}
   a(href='/logout') logout

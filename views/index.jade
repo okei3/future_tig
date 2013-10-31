@@ -1,21 +1,49 @@
 !!! 5
 html
-  head
-    title login
-body
-  h1 login
-  form(action='/login', method='POST')
-    p mail
-      input(type='textbox', name='mail')
-    p password
-      input(type='password', name='pass')
-    input(type='submit')
-  h1 Register
-  form(action='/user/register', method='POST')
-    p name
-      input(type='textbox', name='name')
-    p mail
-      input(type='textbox', name='mail')
-    p pass
-      input(type='password', name='pass')
-    input(type='submit', value='register')
+ head
+  link(rel="stylesheet", href='css/bootstrap.css')
+  link(rel="stylesheet", href='css/flat-ui.css')
+  title Future Tig
+ body
+  .row
+   .span12
+    .navbar.navbar-inverse
+     .navbar-inner
+      .container
+       #nav-collapse-01.nav-collapse.collapse
+        ul.nav
+         li.active
+          a Top
+         li
+          a Lobby
+         li
+          a help
+   .span0
+  .container
+   .demo-headline
+    h1.demo-logo Future Tig
+     small by 9uArtz
+   .row
+    .span2
+    .span3
+     h2 Login
+     form(action='/login', method='POST')
+      .control-group
+       input(style='width:100%', type='text', name='mail', placeholder='Mail address')
+      .control-group
+       input(style='width:100%', type='password', name='pass', placeholder='Password')
+      .control-group
+       input(style='width:100%', type='submit', class='btn btn-primary btn-large btn-block', value='Login')
+    .span2
+    .span3
+     h2 Sign up
+     form(action='/user/register', method='POST')
+      .control-group
+       input(style='width:100%', type='text', name='name', placeholder='Enter your name')
+      .control-group
+       input(style='width:100%', type='text', name='mail', placeholder='Mail address')
+      .control-group
+       input(style='width:100%', type='password', name='pass', placeholder='Password')
+      .control-group
+       input(style='width:100%', type='submit', class='btn btn-primary btn-large btn-block', value='Sign up')
+    .span2
