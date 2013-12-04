@@ -34,6 +34,8 @@ window.onload = function() {
 
     game.onload = function() {
         var scene = new Scene();
+        var map_group = new Group();
+        scene.addChild(map_group);
 
         function Player(position, name) {
             this.character = new Sprite(SPRITE_WIDTH, SPRITE_HEIGHT);
@@ -43,6 +45,10 @@ window.onload = function() {
             this.move = function(position) {
                 var x = nodeData[position][0] * MAP_DOT_WIDTH;
                 var y = nodeData[position][1] * MAP_DOT_HEIGHT;
+                //map move
+                scene.x += this.character.x - (x - this.character.width / 2) ;
+                scene.y += this.character.y - (y - this.character.height * 7 / 8) ;
+
                 // move character
                 this.character.x = x - this.character.width / 2;
                 this.character.y = y - this.character.height * 7 / 8;
@@ -63,6 +69,8 @@ window.onload = function() {
             // constructor
             this.character.image = game.assets[imageFiles['character']];
             this.character.frame = 7;
+            scene.x = 100;
+            scene.y = 100;
             scene.addChild(this.character);
             scene.addChild(this.label);
             this.move(position);
@@ -86,7 +94,7 @@ window.onload = function() {
         }
 
         map.loadData(map_data);
-        scene.addChild(map);
+        map_group.addChild(map);
 
         var players = Array();
         var userId;
@@ -105,7 +113,7 @@ window.onload = function() {
 
         // add event to scene
         scene.addEventListener('touchstart', function(e) {
-            var position = getPosition(e.x, e.y);
+            var position = getPosition(e.x, e.y, scene);
             players[userId].move(position);
             socket.emit('game/move', {
                 position: players[userId].position
@@ -119,7 +127,6 @@ window.onload = function() {
         });
 
         socket.on('game/move', function(data) {
-            console.log(data);
             for(var id in data) {
                 var position = data[id];
                 if (typeof(players[id]) == 'undefined') {
@@ -130,11 +137,11 @@ window.onload = function() {
             }
         });
 
-        function getPosition(x, y) {
+        function getPosition(x, y,scene_data) {
             var position = null;
             for (var i = 0; i < nodeData.length; i++) {
-                if (nodeData[i][0] * MAP_DOT_WIDTH < x && x < (nodeData[i][0] + 1) * MAP_DOT_WIDTH
-                    && nodeData[i][1] * MAP_DOT_HEIGHT < y && y < (nodeData[i][1] + 1) * MAP_DOT_HEIGHT) {
+                if ((nodeData[i][0] * MAP_DOT_WIDTH + scene_data.x) < x && x < ((nodeData[i][0] + 1) * MAP_DOT_WIDTH + scene_data.x)
+                    && (nodeData[i][1] * MAP_DOT_HEIGHT + scene_data.y) < y && y < ((nodeData[i][1] + 1) * MAP_DOT_HEIGHT + scene_data.y)) {
                     position = i;
                 }
             }
